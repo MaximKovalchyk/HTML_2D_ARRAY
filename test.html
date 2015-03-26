@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test for HTML_2D_ARRAY</title>
+</head>
+<body>
+	<style type="text/css">
+		#some_id span {
+			display: inline-block;
+			margin: 5px;
+			padding: 3px;
+			width: 50px;
+			background-color: #eee;
+		}
+	</style>
+	<div id="some_id"></div>
+	<script type="text/javascript" src="html_2d_array.js"></script>
+	<script type="text/javascript">
+		var htmlArray = new HTML_2D_ARRAY({
+			container_HTML_Node : document.getElementById("some_id"),
+			callback_function : function ()  { console.log(arguments); },
+			values_2d_array : [['ass','boobs'],['eros','nano'],['qwerty','ololo']],
+			ROW_HTML_TAG_NAME : 'div',
+			CELL_HTML_TAG_NAME : 'span'
+		});
+	</script>
+</body>
+</html>

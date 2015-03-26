@@ -29,21 +29,23 @@ function HTML_2D_ARRAY(parametersObj) {
 		this._init_by_sizes(parametersObj.x_size, parametersObj.y_size);
 	}
 
-	this._container.addEventListener(this._containerClickHandler);
+	this._container.addEventListener('click', this._containerClickHandler.bind(this));
 }
 
 /*
 	get value of cell
 */
 HTML_2D_ARRAY.prototype.get_value = function(x, y) {
-	return this._nodesStoreage[x * this._x_size + y].innerText;
+	var index = Number(x) * this._x_size + Number(y);
+	return this._nodesStoreage[index].innerText;
 };
 
 /*
 	set value of cell
 */
 HTML_2D_ARRAY.prototype.set_value = function(x, y, value_staring) {
-	this._nodesStoreage[x * this._x_size + y].innerText = value_staring;
+	var index = Number(x) * this._x_size + Number(y);
+	this._nodesStoreage[index].innerText = value_staring;
 };
 
 /*
@@ -72,7 +74,7 @@ HTML_2D_ARRAY.prototype._init_by_sizes = function (x, y) {
 
 	this._container.innerHTML = innerHtml;
 
-	this._x_size = x;
+	this._x_size = y;
 	this._nodesStoreage = this._container.getElementsByTagName(this._CELL_TAG_NAME);
 };
 
